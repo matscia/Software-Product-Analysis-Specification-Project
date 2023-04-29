@@ -30,6 +30,17 @@ function openModal(edit = false, index = 0) {
   
 }
 
+function editarItem(index) {
+
+  openModal(true, index)
+}
+
+function deletarItem(index) {
+  itens.splice(index, 1)
+  setItensBD()
+  carregarItens()
+}
+
 function adicionarItem(item, index) {
   let tr = document.createElement('tr')
 
@@ -37,17 +48,14 @@ function adicionarItem(item, index) {
     <td>${item.nome}</td>
     <td>${item.funcao}</td>
     <td>R$ ${item.salario}</td>
+    <td class="acao">
+      <button onclick="editarItem(${index})"><i class='bx bx-edit' ></i></button>
+    </td>
+    <td class="acao">
+      <button onclick="deletarItem(${index})"><i class='bx bx-trash'></i></button>
+    </td>
   `
   tbody.appendChild(tr)
-}
-
-function carregarItens() {
-  itens = getItensBD()
-  tbody.innerHTML = ''
-  itens.forEach((item, index) => {
-    adicionarItem(item, index)
-  })
-
 }
 
 btnSalvar.onclick = e => {
@@ -71,6 +79,15 @@ btnSalvar.onclick = e => {
   modal.classList.remove('active')
   carregarItens()
   id = undefined
+}
+
+function carregarItens() {
+  itens = getItensBD()
+  tbody.innerHTML = ''
+  itens.forEach((item, index) => {
+    adicionarItem(item, index)
+  })
+
 }
 
 
