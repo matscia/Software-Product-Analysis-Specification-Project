@@ -3,6 +3,9 @@ const tbody = document.querySelector('tbody')
 const sNome = document.querySelector('#nomeFunc')
 const sFuncao = document.querySelector('#funcaoFunc')
 const sSalario = document.querySelector('#salarioFunc')
+const sTelefone = document.querySelector('#telFunc')
+const sEmail = document.querySelector('#emailFunc')
+const sEndereco = document.querySelector('#enderecoFunc')
 const btnSalvar = document.querySelector('#btnSalvar')
 
 let itens
@@ -21,11 +24,17 @@ function openModal(edit = false, index = 0) {
     sNome.value = itens[index].nome
     sFuncao.value = itens[index].funcao
     sSalario.value = itens[index].salario
+    sTelefone.value = itens[index].telefone
+    sEmail.value = itens[index].email
+    sEndereco.value = itens[index].endereco
     id = index
   } else {
     sNome.value = ''
     sFuncao.value = ''
     sSalario.value = ''
+    sTelefone.value = ''
+    sEmail.value = ''
+    sEndereco.value = ''
   }
   
 }
@@ -48,6 +57,9 @@ function adicionarItem(item, index) {
     <td>${item.nome}</td>
     <td>${item.funcao}</td>
     <td>R$ ${item.salario}</td>
+    <td>${item.telefone}</td>
+    <td>${item.email}</td>
+    <td>${item.endereco}</td>
     <td class="acao">
       <button onclick="editarItem(${index})"><i class='bx bx-edit' ></i></button>
     </td>
@@ -60,7 +72,7 @@ function adicionarItem(item, index) {
 
 btnSalvar.onclick = e => {
   
-  if (sNome.value == '' || sFuncao.value == '' || sSalario.value == '') {
+  if (sNome.value == '' || sFuncao.value == '' || sSalario.value == '' || sTelefone.value == '' || sEmail.value == '' || sEndereco.value == '') {
     return
   }
 
@@ -70,8 +82,11 @@ btnSalvar.onclick = e => {
     itens[id].nome = sNome.value
     itens[id].funcao = sFuncao.value
     itens[id].salario = sSalario.value
+    itens[id].telefone = sTelefone.value
+    itens[id].email = sEmail.value
+    itens[id].endereco = sEndereco.value
   } else {
-    itens.push({'nome': sNome.value, 'funcao': sFuncao.value, 'salario': sSalario.value})
+    itens.push({'nome': sNome.value, 'funcao': sFuncao.value, 'salario': sSalario.value, 'telefone': sTelefone.value, 'email': sEmail.value, 'endereco': sEndereco.value})
   }
 
   setItensBD()

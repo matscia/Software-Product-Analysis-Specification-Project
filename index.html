@@ -3,7 +3,7 @@
 
 <head>
   <meta charset="UTF-8">
-  <title>System Product - SPRINT 2</title>
+  <title>System Product - SPRINT 3</title>
   <link rel="stylesheet" href="style.css">
   <link href='https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css' rel='stylesheet'>
 </head>
@@ -22,6 +22,9 @@
             <th>Nome</th>
             <th>Função</th>
             <th>Salário</th>
+            <th>Telefone</th>
+            <th>Email</th>
+            <th>Endereço</th>
             <th class="acao">Editar</th>  
             <th class="acao">Excluir</th>
           </tr>
@@ -36,12 +39,22 @@
         <form>
           <label for="nomeFunc">Nome</label>
           <input id="nomeFunc" type="text" required />
-  
+
           <label for="funcaoFunc">Função</label>
           <input id="funcaoFunc" type="text" required />
-  
+
           <label for="salarioFunc">Salário</label>
           <input id="salarioFunc" type="number" required />
+
+          <label for="telFunc">Telefone</label>
+          <input id="telFunc" type="tel" required />
+        
+
+          <label for="emailFunc">Email</label>
+          <input id="emailFunc" type="email" required />
+
+          <label for="enderecoFunc">Endereço</label>
+          <input id="enderecoFunc" type="text" required />
           <button id="btnSalvar">Adicionar</button>
         </form>
       </div>
