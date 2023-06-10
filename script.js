@@ -11,6 +11,7 @@ const btnSalvar = document.querySelector('#btnSalvar')
 let itens
 let id
 
+// Função relacionada ao envio das informações do cadastro de funcionários
 function openModal(edit = false, index = 0) {
   modal.classList.add('active')
 
@@ -37,6 +38,8 @@ function openModal(edit = false, index = 0) {
     sEndereco.value = ''
   }
   
+
+  // Funções relacionadas as funções individuais de cada item
 }
 
 function editarItem(index) {
@@ -104,6 +107,7 @@ function carregarItens() {
   })
 
 }
+
 
 
 const getItensBD = () => JSON.parse(localStorage.getItem('dbfunc')) ?? []
